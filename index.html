@@ -1,40 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="content">
-        <h3>早安</h3>
-   
-       <p>A paragraph</p>
+<html>
+  <head>
+    <title>jsPDF Arabic Font Example</title>
+  </head>
+  <body style="width: 650px; ">
+    <div id="divIdToPrint">
+        <div style="padding-left: 35px;padding-right: 35px;">
+            <div style="text-align:center;line-height:50px;">
+                <h2>車禍和解書</h2>
+            </div>
+            <h4>事發時間：<br>
+            民國109年9月28日</h4>
+            <h4>事發地點：<br>
+            台北市大安區建國路五段11巷5弄9樓之5</h4>
+            <h4>事發經過：<br>
+            台北市大安區建國路五段11巷5弄9樓之5</h4>
+            <h4>和解內容：<br>
+                台北市大安建國路五段11巷5弄9樓之5台北市大安建國路五段11巷5弄9樓之5台北市大安區建國路五段11巷5弄9樓之5台北市大安區建國路五段11巷5弄9樓之5台北市大安區建國路五段11巷5弄9樓之5</h4>
+            <h4>甲方：<br>
+                姓名：哈哈哈<br>
+                身分證字號：S127567976<br>
+                車牌號碼：097353838<br>
+                電話號碼：73939393<br>
+                通訊地址：新北勢新莊區莊敬路45號2樓
+            </h4>
+            <h4>乙方：<br>
+                姓名：嘻嘻嘻<br>
+                身分證字號：S127567976<br>
+                車牌號碼：097353838<br>
+                電話號碼：73939393<br>
+                通訊地址：新北勢新莊區莊敬路45號2樓
+            </h4>
+            <h4>中華民國109年10月20日</h4>
+        </div>
+        <!-- <button onclick="createPDF()">Create PDF</button> -->
    </div>
-   <div id="editor"></div>
-   <button id="cmd">generate PDF</button>
+   
 </body>
-
-<script src="./jsPDF-1.3.2/dist/jspdf.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script>
-    var doc = new jsPDF();
-    var specialElementHandlers = {
-        '#editor': function (element, renderer) {
-            return true;
-        }
-    };
-
-    $('#cmd').click(function () {
-        doc.fromHTML($('#content').html(), 15, 15, {
-            'width': 170,
-                'elementHandlers': specialElementHandlers
-        });
-        doc.save('sample-file.pdf');
-    });
-
-    // This code is collected but useful, click below to jsfiddle link.
+  <script src="  https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="  https://unpkg.com/html2canvas@1.0.0-rc.5/dist/html2canvas.js"></script>
+  <script>
+    //   function createPDF(){
+        const input = document.getElementById('divIdToPrint');    
+        html2canvas(input)
+            .then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, 'PNG', 0, 0);
+            pdf.save("download.pdf");  
+        }); 
+    //   }
 </script>
 </html>
+ 
 
