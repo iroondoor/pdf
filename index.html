@@ -32,15 +32,15 @@
                 通訊地址：新北勢新莊區莊敬路45號2樓
             </h4>
             <h4>中華民國109年10月20日</h4>
-        </div>
-        <!-- <button onclick="createPDF()">Create PDF</button> -->
+        </div> -->
+        <button onclick="createPDF()">Create PDF</button>
    </div>
-   
+   <h3>hi</h3>
 </body>
   <script src="  https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
   <script src="  https://unpkg.com/html2canvas@1.0.0-rc.5/dist/html2canvas.js"></script>
   <script>
-    //   function createPDF(){
+      function createPDF(){
         const input = document.getElementById('divIdToPrint');    
         html2canvas(input)
             .then((canvas) => {
@@ -49,7 +49,7 @@
             pdf.addImage(imgData, 'PNG', 0, 0);
             pdf.save("download.pdf");  
         }); 
-    //   }
+      }
 </script>
 </html>
  
