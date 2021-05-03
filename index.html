@@ -3,6 +3,7 @@
   <head>
     <title>jsPDF Arabic Font Example</title>
   </head>
+  
   <body style="width: 650px; ">
     <div id="divIdToPrint">
         <div style="padding-left: 35px;padding-right: 35px;">
@@ -44,7 +45,20 @@
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF();
             pdf.addImage(imgData, 'PNG', 0, 0);
-            pdf.save("download.pdf");  
+            // pdf.save("download.pdf");
+            // const file = doc.output('blob');
+
+            // const filePath = Date.now().toString();
+            // const fileRef = this.storage.ref('/test/' + filePath);
+            // const task = this.storage.upload('/test/' + filePath, file);
+            // this.uploadPercent = task.percentageChanges();
+            // task.snapshotChanges().pipe(
+            // finalize(() => {
+            // this.downloadURL = fileRef.getDownloadURL();
+            // this.downloadURL.subscribe(url => this.url = url
+            // )
+            // }))
+            // .subscribe();
         });
 </script>
 </html>
